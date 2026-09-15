@@ -3,133 +3,298 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy – Screen Distance</title>
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Privacy policy of Screen Distance, the Android app that dims the screen when the phone is too close to your eyes. No data collected, no internet permission.">
+<title>Privacy Policy · Screen Distance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='18 18 72 72'%3E%3Cdefs%3E%3ClinearGradient id='g' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='108' y2='108'%3E%3Cstop offset='0' stop-color='%2300C39A'/%3E%3Cstop offset='.55' stop-color='%232F80ED'/%3E%3Cstop offset='1' stop-color='%236C5CE7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='108' height='108' rx='22' fill='url(%23g)'/%3E%3Cpath fill='%23fff' d='M54,36C38,36 27,48 24,54C27,60 38,72 54,72C70,72 81,60 84,54C81,48 70,36 54,36ZM54,66C46,66 37,59 31,54C37,49 46,42 54,42C62,42 71,49 77,54C71,59 62,66 54,66Z'/%3E%3Ccircle cx='54' cy='54' r='9' fill='%23fff'/%3E%3Cpath fill='%23fff' d='M30,80h48v3H30ZM30,76h3v11h-3ZM75,76h3v11h-3Z'/%3E%3C/svg%3E">
 <style>
-  :root { color-scheme: light dark; }
-  body { margin: 0; padding: 32px 20px 64px; font: 16px/1.6 -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #1a2233; background: #f6fbf9; }
-  main { max-width: 720px; margin: 0 auto; }
-  h1 { font-size: 30px; margin: 0 0 4px; }
-  h2 { font-size: 20px; margin: 32px 0 8px; }
-  .meta { color: #5c6b7a; margin-bottom: 24px; }
-  .lang { display: flex; gap: 12px; margin: 0 0 24px; }
-  .lang a { color: #0a8a6e; text-decoration: none; font-weight: 600; }
-  ul { padding-left: 22px; }
-  hr { border: 0; border-top: 1px solid #d9e3df; margin: 48px 0; }
-  @media (prefers-color-scheme: dark) {
-    body { background: #0b1220; color: #e6edf3; }
-    .meta { color: #9fb0c0; }
-    hr { border-top-color: #263243; }
-    .lang a { color: #2ee6c5; }
+  :root {
+    --bg: #f7f9fc;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --muted: #5b6b7f;
+    --line: #e6ebf2;
+    --accent: #0a9f82;
+    --accent-2: #2f80ed;
+    --accent-3: #6c5ce7;
+    --tint: #eefaf6;
+    --shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 12px 40px -16px rgba(15, 23, 42, .18);
+    --radius: 20px;
   }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b1220;
+      --surface: #111a2b;
+      --text: #e8eef7;
+      --muted: #9aabbf;
+      --line: #223047;
+      --accent: #2ee6c5;
+      --accent-2: #5aa2ff;
+      --accent-3: #9d8cff;
+      --tint: #14231f;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 20px 50px -20px rgba(0, 0, 0, .7);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Manrope, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Soft brand glow behind the header */
+  .glow {
+    position: absolute; inset: 0 0 auto 0; height: 420px; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(60% 70% at 15% 0%, rgba(0, 195, 154, .18), transparent 60%),
+      radial-gradient(50% 60% at 60% 0%, rgba(47, 128, 237, .16), transparent 60%),
+      radial-gradient(45% 60% at 95% 10%, rgba(108, 92, 231, .16), transparent 60%);
+  }
+  .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 28px 20px 64px; }
+
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+  .brand svg { width: 44px; height: 44px; border-radius: 12px; box-shadow: 0 6px 18px -6px rgba(47, 128, 237, .55); flex: none; }
+  .brand b { display: block; font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
+  .brand span { display: block; font-size: 13px; color: var(--muted); }
+
+  /* Language switch */
+  .lang { display: inline-flex; padding: 4px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .lang button {
+    appearance: none; border: 0; background: transparent; color: var(--muted); cursor: pointer;
+    font: inherit; font-size: 13px; font-weight: 600; letter-spacing: .02em;
+    padding: 7px 14px; border-radius: 999px; transition: color .2s, background .2s;
+  }
+  .lang button[aria-selected="true"] { color: #fff; background: linear-gradient(120deg, var(--accent), var(--accent-2)); }
+  .lang button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+  .card {
+    margin-top: 32px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); box-shadow: var(--shadow); padding: 44px 48px 40px;
+  }
+  .eyebrow { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+  h1 { margin: 10px 0 8px; font-size: 36px; line-height: 1.15; font-weight: 800; letter-spacing: -.025em; }
+  .meta { color: var(--muted); font-size: 14px; margin: 0 0 28px; }
+  .lead { font-size: 17px; margin: 0 0 28px; }
+
+  .glance { border-radius: 16px; background: var(--tint); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); padding: 20px 22px; margin: 0 0 36px; }
+  .glance h2 { margin: 0 0 12px; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+  .glance ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .glance li { display: flex; gap: 12px; align-items: flex-start; font-weight: 500; }
+  .glance li svg { width: 22px; height: 22px; flex: none; margin-top: 2px; }
+
+  h2 { margin: 34px 0 10px; font-size: 20px; font-weight: 700; letter-spacing: -.015em; }
+  h2 + p, h2 + ul { margin-top: 0; }
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 14px; padding-left: 22px; }
+  li { margin: 6px 0; }
+  li::marker { color: var(--accent-2); }
+  strong { font-weight: 600; }
+
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 16px; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 11px 12px; border-bottom: 1px solid var(--line); }
+  th { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  .contact { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 12px; background: var(--tint); text-decoration: none; color: var(--text); font-weight: 600; border: 1px solid var(--line); }
+  .contact:hover { border-color: var(--accent); }
+  .contact svg { width: 18px; height: 18px; }
+
+  footer { margin-top: 22px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: 13px; }
+  footer a { color: inherit; }
+
+  [hidden] { display: none !important; }
+  @media (max-width: 640px) {
+    .wrap { padding: 20px 16px 48px; }
+    .card { padding: 28px 22px 26px; border-radius: 18px; margin-top: 22px; }
+    h1 { font-size: 30px; }
+    .brand span { display: none; }
+    td:first-child { white-space: normal; }
+  }
+  @media print { .lang, .glow { display: none; } .card { box-shadow: none; border: 0; padding: 0; } }
 </style>
 </head>
 <body>
-<main>
-<nav class="lang"><a href="#en">English</a><a href="#tr">Türkçe</a></nav>
+<div class="glow"></div>
+<div class="wrap">
+  <header>
+    <a class="brand" href="#" aria-label="Screen Distance">
+      <svg viewBox="18 18 72 72" aria-hidden="true">
+        <defs><linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="108" y2="108">
+          <stop offset="0" stop-color="#00C39A"/><stop offset=".55" stop-color="#2F80ED"/><stop offset="1" stop-color="#6C5CE7"/>
+        </linearGradient></defs>
+        <rect width="108" height="108" fill="url(#bg)"/>
+        <path fill="#fff" d="M54,36C38,36 27,48 24,54C27,60 38,72 54,72C70,72 81,60 84,54C81,48 70,36 54,36ZM54,66C46,66 37,59 31,54C37,49 46,42 54,42C62,42 71,49 77,54C71,59 62,66 54,66Z"/>
+        <circle cx="54" cy="54" r="9" fill="#fff"/>
+        <path fill="#fff" d="M30,80h48v3H30ZM30,76h3v11h-3ZM75,76h3v11h-3Z"/>
+      </svg>
+      <div><b>Screen Distance</b><span>by Woots Games</span></div>
+    </a>
+    <div class="lang" role="tablist" aria-label="Language">
+      <button type="button" role="tab" data-lang="en" aria-selected="true">EN</button>
+      <button type="button" role="tab" data-lang="tr" aria-selected="false">TR</button>
+    </div>
+  </header>
 
-<section id="en">
-<h1>Privacy Policy – Screen Distance</h1>
-<p class="meta">Developer: Woots Games · Last updated: 15 September 2026</p>
+  <!-- ===================== ENGLISH ===================== -->
+  <main class="card" id="en" data-lang="en" role="tabpanel">
+    <span class="eyebrow">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective 15 September 2026 · Applies to the Screen Distance app for Android</p>
 
-<p>Screen Distance measures how far your phone is from your face and dims the screen when it is too close. This policy explains what the app does with the camera and what it stores.</p>
+    <p class="lead">Screen Distance measures how far your phone is from your face and dims the screen when it is too close. This page explains what the app does with the camera and what it keeps on your device.</p>
 
-<h2>Summary</h2>
-<ul>
-  <li>The app does not collect, share or sell any personal data.</li>
-  <li>Camera frames are processed on the device and discarded immediately.</li>
-  <li>The app does not have the internet permission, so no data can leave your device.</li>
-  <li>There is no account, no sign-up, no advertising and no analytics.</li>
-</ul>
+    <section class="glance" aria-labelledby="glance-en">
+      <h2 id="glance-en">At a glance</h2>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.5 2.5L16 9.5"/></svg>No personal data is collected, shared or sold.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.5 2.5L16 9.5"/></svg>Camera frames are processed on the device and discarded immediately.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.5 2.5L16 9.5"/></svg>The app has no internet permission, so nothing can leave your phone.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.5 2.5L16 9.5"/></svg>No account, no sign-up, no advertising, no analytics.</li>
+      </ul>
+    </section>
 
-<h2>What the app does with the camera</h2>
-<ul>
-  <li>Every few seconds, while the screen is on and unlocked, the app takes one low-resolution frame from the front camera and runs face detection on the device.</li>
-  <li>The frame is used only to measure the distance between your eyes and is discarded right after. No image is ever saved, shown or transmitted.</li>
-  <li>Face detection is provided by Google ML Kit in its bundled, on-device form. No frame is sent to Google or anyone else.</li>
-  <li>The camera privacy indicator of Android lights up briefly during each measurement. The app cannot hide it.</li>
-</ul>
+    <h2>What the app does with the camera</h2>
+    <ul>
+      <li>Every few seconds, while the screen is on and unlocked, the app takes one low-resolution frame from the front camera and runs face detection on the device.</li>
+      <li>The frame is used only to measure the distance between your eyes and is discarded right after. No image is ever saved, shown or transmitted.</li>
+      <li>Face detection is provided by Google ML Kit in its bundled, on-device form. No frame is sent to Google or to anyone else.</li>
+      <li>Android's camera privacy indicator lights up briefly during each measurement. The app cannot hide it.</li>
+    </ul>
 
-<h2>What the app stores on your device</h2>
-<ul>
-  <li>Your settings: alert distance, measurement rhythm, kids mode, child's age, calibration factor, reminder preferences.</li>
-  <li>Aggregated statistics per hour: seconds spent too close, number of alerts and average distance. No images and no timestamps of individual measurements.</li>
-  <li>An optional PIN for kids mode, stored only as a salted hash.</li>
-</ul>
-<p>All of this stays on your device and is removed when you uninstall the app. Android's backup service may back up settings and statistics to your Google account according to your device settings; the PIN is excluded from backups.</p>
+    <h2>What stays on your device</h2>
+    <ul>
+      <li><strong>Settings</strong>: alert distance, measurement rhythm, kids mode, child's age, calibration factor and reminder preferences.</li>
+      <li><strong>Hourly statistics</strong>: seconds spent too close, number of alerts and average distance. No images and no individual measurement timestamps.</li>
+      <li><strong>Optional PIN</strong> for kids mode, stored only as a salted hash.</li>
+    </ul>
+    <p>All of this stays on your device and is removed when you uninstall the app. Android's backup service may back up settings and statistics to your Google account according to your device settings; the PIN is excluded from backups.</p>
 
-<h2>Data shared with third parties</h2>
-<p>None. The app contains no advertising, analytics or crash-reporting SDKs that transmit data. The weekly report image is created only when you tap "Share" and is handed to the app you choose.</p>
+    <h2>Sharing with third parties</h2>
+    <p>None. The app contains no advertising, analytics or crash-reporting SDKs that transmit data. The weekly report image is created only when you tap "Share" and is handed to the app you choose.</p>
 
-<h2>Children</h2>
-<p>Kids mode is designed for parents and guardians who manage a child's device. The app does not collect personal information from anyone, children included.</p>
+    <h2>Children</h2>
+    <p>Kids mode is designed for parents and guardians who manage a child's device. The app does not collect personal information from anyone, children included.</p>
 
-<h2>Permissions</h2>
-<ul>
-  <li><strong>Camera</strong>: to measure the distance.</li>
-  <li><strong>Display over other apps</strong>: to dim the screen inside any app.</li>
-  <li><strong>Notifications</strong>: to show that protection is running and to let you pause it.</li>
-  <li><strong>Run at startup</strong>: to remind you, with a notification, to turn protection back on after a restart.</li>
-</ul>
+    <h2>Permissions</h2>
+    <table>
+      <thead><tr><th>Permission</th><th>Why the app needs it</th></tr></thead>
+      <tbody>
+        <tr><td>Camera</td><td>To measure the distance between the phone and your eyes.</td></tr>
+        <tr><td>Display over other apps</td><td>To dim the screen inside any app when you are too close.</td></tr>
+        <tr><td>Notifications</td><td>To show that protection is running and let you pause or stop it.</td></tr>
+        <tr><td>Run at startup</td><td>To remind you, with a notification, to turn protection back on after a restart.</td></tr>
+      </tbody>
+    </table>
 
-<h2>Changes</h2>
-<p>If this policy changes, the new version will be published at this address with an updated date.</p>
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the new version is published at this address with an updated effective date.</p>
 
-<h2>Contact</h2>
-<p>altunoxllc@gmail.com</p>
-</section>
+    <h2>Contact</h2>
+    <p><a class="contact" href="mailto:altunoxllc@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg>altunoxllc@gmail.com</a></p>
+  </main>
 
-<hr>
+  <!-- ===================== TÜRKÇE ===================== -->
+  <main class="card" id="tr" data-lang="tr" role="tabpanel" lang="tr" hidden>
+    <span class="eyebrow">Yasal</span>
+    <h1>Gizlilik Politikası</h1>
+    <p class="meta">Yürürlük tarihi 15 Eylül 2026 · Android için Ekran Mesafesi uygulamasını kapsar</p>
 
-<section id="tr" lang="tr">
-<h1>Gizlilik Politikası – Ekran Mesafesi</h1>
-<p class="meta">Geliştirici: Woots Games · Son güncelleme: 15 Eylül 2026</p>
+    <p class="lead">Ekran Mesafesi, telefonun yüzüne ne kadar uzak olduğunu ölçer ve çok yakınken ekranı karartır. Bu sayfa uygulamanın kamerayla ne yaptığını ve cihazında neleri tuttuğunu açıklar.</p>
 
-<p>Ekran Mesafesi, telefonun yüzüne ne kadar uzak olduğunu ölçer ve çok yakınken ekranı karartır. Bu politika uygulamanın kamerayla ne yaptığını ve neleri sakladığını açıklar.</p>
+    <section class="glance" aria-labelledby="glance-tr">
+      <h2 id="glance-tr">Bir bakışta</h2>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.5 2.5L16 9.5"/></svg>Hiçbir kişisel veri toplanmaz, paylaşılmaz, satılmaz.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.5 2.5L16 9.5"/></svg>Kamera kareleri cihazda işlenir ve anında silinir.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.5 2.5L16 9.5"/></svg>Uygulamanın internet izni yoktur; telefondan hiçbir şey çıkamaz.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.5 2.5L16 9.5"/></svg>Hesap, kayıt, reklam ve analiz yoktur.</li>
+      </ul>
+    </section>
 
-<h2>Özet</h2>
-<ul>
-  <li>Uygulama hiçbir kişisel veri toplamaz, paylaşmaz ve satmaz.</li>
-  <li>Kamera kareleri cihazda işlenir ve anında silinir.</li>
-  <li>Uygulamanın internet izni yoktur; cihazdan hiçbir veri çıkamaz.</li>
-  <li>Hesap, kayıt, reklam ve analiz yoktur.</li>
-</ul>
+    <h2>Uygulama kamerayla ne yapar</h2>
+    <ul>
+      <li>Ekran açık ve kilit açıkken birkaç saniyede bir ön kameradan düşük çözünürlüklü tek bir kare alınır ve cihaz üzerinde yüz algılama çalıştırılır.</li>
+      <li>Kare yalnızca gözlerin arasındaki mesafeyi ölçmek için kullanılır ve hemen ardından silinir. Hiçbir görüntü kaydedilmez, gösterilmez veya iletilmez.</li>
+      <li>Yüz algılama, Google ML Kit'in uygulamayla birlikte gelen, cihaz üzerinde çalışan sürümüyle yapılır. Hiçbir kare Google'a veya başkasına gönderilmez.</li>
+      <li>Android'in kamera gizlilik göstergesi her ölçümde kısa süre yanar. Uygulama bunu gizleyemez.</li>
+    </ul>
 
-<h2>Uygulama kamerayla ne yapar</h2>
-<ul>
-  <li>Ekran açık ve kilit açıkken birkaç saniyede bir ön kameradan düşük çözünürlüklü tek bir kare alınır ve cihaz üzerinde yüz algılama çalıştırılır.</li>
-  <li>Kare yalnızca gözlerin arasındaki mesafeyi ölçmek için kullanılır ve hemen ardından silinir. Hiçbir görüntü kaydedilmez, gösterilmez veya iletilmez.</li>
-  <li>Yüz algılama, Google ML Kit'in uygulamayla birlikte gelen, cihaz üzerinde çalışan sürümüyle yapılır. Hiçbir kare Google'a veya başkasına gönderilmez.</li>
-  <li>Android'in kamera gizlilik göstergesi her ölçümde kısa süre yanar. Uygulama bunu gizleyemez.</li>
-</ul>
+    <h2>Cihazında kalanlar</h2>
+    <ul>
+      <li><strong>Ayarlar</strong>: uyarı mesafesi, ölçüm ritmi, çocuk modu, çocuğun yaşı, kalibrasyon katsayısı ve hatırlatıcı tercihleri.</li>
+      <li><strong>Saatlik istatistik</strong>: çok yakın geçirilen saniye, uyarı sayısı ve ortalama mesafe. Görüntü veya tek tek ölçüm zamanı tutulmaz.</li>
+      <li><strong>İsteğe bağlı PIN</strong> (çocuk modu için), yalnızca tuzlanmış özet (hash) olarak saklanır.</li>
+    </ul>
+    <p>Bunların hepsi cihazında kalır ve uygulamayı kaldırdığında silinir. Android'in yedekleme hizmeti, cihaz ayarlarına göre ayarları ve istatistikleri Google hesabına yedekleyebilir; PIN yedeklemenin dışındadır.</p>
 
-<h2>Uygulama cihazında neleri saklar</h2>
-<ul>
-  <li>Ayarların: uyarı mesafesi, ölçüm ritmi, çocuk modu, çocuğun yaşı, kalibrasyon katsayısı, hatırlatıcı tercihleri.</li>
-  <li>Saat başına toplu istatistik: çok yakın geçirilen saniye, uyarı sayısı ve ortalama mesafe. Görüntü veya tek tek ölçüm zamanı tutulmaz.</li>
-  <li>Çocuk modu için isteğe bağlı PIN; yalnızca tuzlanmış özet (hash) olarak saklanır.</li>
-</ul>
-<p>Bunların hepsi cihazında kalır ve uygulamayı kaldırdığında silinir. Android'in yedekleme hizmeti, cihaz ayarlarına göre ayarları ve istatistikleri Google hesabına yedekleyebilir; PIN yedeklemenin dışındadır.</p>
+    <h2>Üçüncü taraflarla paylaşım</h2>
+    <p>Yok. Uygulamada veri ileten reklam, analiz veya çökme raporu SDK'sı bulunmaz. Haftalık rapor görseli yalnızca "Paylaş"a dokunduğunda oluşturulur ve seçtiğin uygulamaya verilir.</p>
 
-<h2>Üçüncü taraflarla paylaşılan veri</h2>
-<p>Yok. Uygulamada veri ileten reklam, analiz veya çökme raporu SDK'sı bulunmaz. Haftalık rapor görseli yalnızca "Paylaş"a dokunduğunda oluşturulur ve seçtiğin uygulamaya verilir.</p>
+    <h2>Çocuklar</h2>
+    <p>Çocuk modu, bir çocuğun cihazını yöneten ebeveyn ve veliler için tasarlanmıştır. Uygulama çocuklar dahil kimseden kişisel bilgi toplamaz.</p>
 
-<h2>Çocuklar</h2>
-<p>Çocuk modu, bir çocuğun cihazını yöneten ebeveyn ve veliler için tasarlanmıştır. Uygulama çocuklar dahil kimseden kişisel bilgi toplamaz.</p>
+    <h2>İzinler</h2>
+    <table>
+      <thead><tr><th>İzin</th><th>Neden gerekli</th></tr></thead>
+      <tbody>
+        <tr><td>Kamera</td><td>Telefon ile gözlerin arasındaki mesafeyi ölçmek için.</td></tr>
+        <tr><td>Diğer uygulamaların üzerinde gösterme</td><td>Çok yakınken ekranı her uygulamanın içinde karartmak için.</td></tr>
+        <tr><td>Bildirimler</td><td>Korumanın çalıştığını göstermek, duraklatma ve durdurma için.</td></tr>
+        <tr><td>Açılışta çalıştırma</td><td>Yeniden başlatmadan sonra korumayı açmanı bir bildirimle hatırlatmak için.</td></tr>
+      </tbody>
+    </table>
 
-<h2>İzinler</h2>
-<ul>
-  <li><strong>Kamera</strong>: mesafeyi ölçmek için.</li>
-  <li><strong>Diğer uygulamaların üzerinde gösterme</strong>: ekranı her uygulamanın içinde karartmak için.</li>
-  <li><strong>Bildirimler</strong>: korumanın çalıştığını göstermek ve duraklatabilmen için.</li>
-  <li><strong>Açılışta çalıştırma</strong>: yeniden başlatmadan sonra korumayı açmanı bir bildirimle hatırlatmak için.</li>
-</ul>
+    <h2>Değişiklikler</h2>
+    <p>Bu politika değişirse yeni sürüm, güncel yürürlük tarihiyle bu adreste yayımlanır.</p>
 
-<h2>Değişiklikler</h2>
-<p>Bu politika değişirse yeni sürüm, güncel tarihle bu adreste yayımlanır.</p>
+    <h2>İletişim</h2>
+    <p><a class="contact" href="mailto:altunoxllc@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg>altunoxllc@gmail.com</a></p>
+  </main>
 
-<h2>İletişim</h2>
-<p>altunoxllc@gmail.com</p>
-</section>
-</main>
+  <footer>
+    <span>© 2026 Woots Games</span>
+    <span><a href="https://play.google.com/store/apps/details?id=com.woots.screendistance">Google Play</a></span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var panels = document.querySelectorAll('main[data-lang]');
+  var tabs = document.querySelectorAll('.lang button');
+  var titles = { en: 'Privacy Policy · Screen Distance', tr: 'Gizlilik Politikası · Ekran Mesafesi' };
+
+  function apply(lang, persist) {
+    panels.forEach(function (p) { p.hidden = p.dataset.lang !== lang; });
+    tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t.dataset.lang === lang)); });
+    document.documentElement.lang = lang;
+    document.title = titles[lang];
+    if (persist) { try { localStorage.setItem('lang', lang); } catch (e) {} }
+  }
+
+  var wanted = location.hash.replace('#', '') || new URLSearchParams(location.search).get('lang');
+  if (wanted !== 'en' && wanted !== 'tr') {
+    try { wanted = localStorage.getItem('lang'); } catch (e) { wanted = null; }
+  }
+  if (wanted !== 'en' && wanted !== 'tr') {
+    wanted = /^tr\b/i.test(navigator.language || '') ? 'tr' : 'en';
+  }
+  apply(wanted, false);
+
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      apply(t.dataset.lang, true);
+      history.replaceState(null, '', '#' + t.dataset.lang);
+    });
+  });
+})();
+</script>
 </body>
 </html>
